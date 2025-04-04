@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- Viewport -->
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+
+  <!-- SEO meta tags -->
+  <title>N-Group</title>
+  <meta name="description" content="Around - Multipurpose Bootstrap HTML Template">
+  <meta name="keywords"
+    content="bootstrap, business, corporate, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, saas, multipurpose, product landing, shop, software, ui kit, web studio, landing, light and dark mode, html5, css3, javascript, gallery, slider, touch, creative">
+  <meta name="author" content="Createx Studio">
+
+  <!-- Webmanifest + Favicon / App icons -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="images/icon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="images/icon-180x180.png">
+
+  <!-- Theme switcher (color modes) -->
+  <script src="{% static 'js/theme-switcher.js' %}"></script>
+
+  <!-- Import Google font (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+    id="google-font">
+
+  <!-- Vendor styles -->
+  <link rel="stylesheet" media="screen" href="{% static 'css/swiper-bundle.min.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+  <!-- Font icons -->
+  <link rel="stylesheet" href="{% static 'css/around-icons.min.css' %}">
+
+  <!-- Theme styles + Bootstrap -->
+  <link rel="stylesheet" media="screen" href="{% static 'css/theme.min.css' %}">
+
+  <!-- Customizer generated styles -->
+  <style id="customizer-styles"></style>
+
+  <!-- Page loading styles -->
+  <style>
+    .page-loading {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: all .4s .2s ease-in-out;
+      transition: all .4s .2s ease-in-out;
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+    }
+
+    [data-bs-theme="dark"] .page-loading {
+      background-color: #121519;
+    }
+
+    .page-loading.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .page-loading-inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -webkit-transition: opacity .2s ease-in-out;
+      transition: opacity .2s ease-in-out;
+      opacity: 0;
+    }
+
+    .page-loading.active>.page-loading-inner {
+      opacity: 1;
+    }
+
+    .page-loading-inner>span {
+      display: block;
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #6f788b;
+    }
+
+    [data-bs-theme="dark"] .page-loading-inner>span {
+      color: #fff;
+      opacity: .6;
+    }
+
+    .page-spinner {
+      display: inline-block;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin-bottom: .75rem;
+      vertical-align: text-bottom;
+      background-color: #d7dde2;
+      border-radius: 50%;
+      opacity: 0;
+      -webkit-animation: spinner .75s linear infinite;
+      animation: spinner .75s linear infinite;
+    }
+
+    [data-bs-theme="dark"] .page-spinner {
+      background-color: rgba(255, 255, 255, .25);
+    }
+
+    @-webkit-keyframes spinner {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    @keyframes spinner {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+  </style>
+
+  <!-- Page loading scripts -->
+  <script>
+    (function () {
+      window.onload = function () {
+        const preloader = document.querySelector('.page-loading')
+        preloader.classList.remove('active')
+        setTimeout(function () {
+          preloader.remove()
+        }, 1500)
+      }
+    })()
+  </script>
+
+  <style>
+    .logo-dark {
+        display: none;
+    }
+
+    /* Если включена темная тема */
+    [data-bs-theme="dark"] .logo-light {
+        display: none;
+    }
+    [data-bs-theme="dark"] .logo-dark {
+        display: block;
+    }
+</style>
+
+ 
+</head>
+
+<!-- Body -->
+
+<body>
+
+  
+
+  <!-- Page loading spinner -->
+  <div class="page-loading active">
+    <div class="page-loading-inner">
+      <div class="page-spinner"></div>
+      <span>Загрузка...</span>
+    </div>
+  </div>
+
+  
+
+  <!-- Customizer toggler -->
+  <a class="position-fixed top-50 bg-light text-dark fw-medium border rounded-pill shadow text-decoration-none"
+    href="#customizer" data-bs-toggle="offcanvas"
+    style="right: -1.75rem; margin-top: -1rem; padding: .25rem .75rem; transform: rotate(-90deg); font-size: calc(var(--ar-body-font-size) * .8125); letter-spacing: .075rem; z-index: 1030;">
+    <i class="ai-phone text-primary fs-base me-1 ms-n1"></i> Контакты
+  </a>
+
+  <!-- Customizer offcanvas -->
+  <div class="offcanvas offcanvas-end" id="customizer" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1">
+    <div class="offcanvas-header border-bottom">
+      <h4 class="offcanvas-title">Контакты</h4>
+      <button class="btn-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+  
+      <!-- Заголовок секции для связи -->
+      <div class="d-flex align-items-center mb-4">
+        <h5 class="mb-0 text-primary">Связаться с нами</h5>
+      </div>
+  
+      <!-- Телефон -->
+      <div class="d-flex align-items-center mb-4">
+        <i class="ai-phone text-body-secondary fs-4 me-3"></i>
+        <h6 class="text-dark mb-0">+7 708 800 98 63</h5>
+      </div>
+  
+      <!-- Почта -->
+      <div class="d-flex align-items-center mb-4">
+        <i class="ai-mail text-body-secondary fs-4 me-3"></i>
+        <h6 class="text-dark mb-0">info@yourdomain.com</h5>
+      </div>
+  
+      <!-- Адрес -->
+      <div class="d-flex align-items-center mb-4">
+    
+        <h6 class="text-dark mb-0">г. Алматы, ул. Абая 123, офис 456</h5>
+      </div>
+  
+      <!-- Поиск -->
+      <div class="d-flex align-items-center mb-4">
+        <i class="ai-search text-body-secondary fs-4 me-3"></i>
+        <h5 class="mb-0">Поиск</h5>
+      </div>
+      <div class="mb-3">
+        <input class="form-control" type="text" placeholder="Поиск по сайту..." id="border-radius">
+      </div>
+  
+      <!-- Информационный блок о компании -->
+      <div class="mb-4">
+        <h5 class="text-primary mb-3">О компании</h5>
+        <p>Мы — лидеры на рынке высококачественных продуктов и услуг в сфере электроники. Наша компания предоставляет своим клиентам только лучшие решения для бизнеса и личного использования. Присоединяйтесь к нам и станьте частью инновационного мира!</p>
+      </div>
+  
+      <!-- Карта -->
+      <div class="mb-4">
+        <h5 class="text-primary mb-3">Наш офис на карте</h5>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Almaty,+Kazakhstan" allowfullscreen></iframe>
+        </div>
+      </div>
+  
+    
+  
+      <!-- Социальные сети -->
+      <div class="d-flex align-items-center justify-content-between">
+        <h5 class="mb-0">Следите за нами</h5>
+        <div>
+          <a href="#" class="text-body-secondary me-3">
+            <i class="ai-facebook fs-4"></i>
+          </a>
+          <a href="#" class="text-body-secondary me-3">
+            <i class="ai-twitter fs-4"></i>
+          </a>
+          <a href="#" class="text-body-secondary">
+            <i class="ai-instagram fs-4"></i>
+          </a>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <style>
+    .offcanvas-body {
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+  
+    .offcanvas-header {
+      color: #fff;
+    }
+  
+    .offcanvas-title {
+      font-size: 1.25rem;
+    }
+  
+    .d-flex .ai-phone,
+    .d-flex .ai-mail,
+    .d-flex .ai-location {
+      color: #007bff;
+    }
+  
+    .form-control {
+      border-radius: 0.375rem;
+    }
+  
+    .ai-facebook,
+    .ai-twitter,
+    .ai-instagram {
+      color: #007bff;
+    }
+  
+    .ai-facebook:hover,
+    .ai-twitter:hover,
+    .ai-instagram:hover {
+      color: #0056b3;
+    }
+  
+    /* Стиль для карты */
+    .embed-responsive {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      background: #fff;
+    }
+  
+    .embed-responsive iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  
+    /* Стиль для отзывов */
+    blockquote {
+      background-color: #f8f9fa;
+      border-left: 5px solid #007bff;
+      padding: 10px 20px;
+      margin: 0;
+    }
+  
+    .blockquote-footer {
+      font-size: 0.875rem;
+      color: #6c757d;
+    }
+  </style>
+  
+
+  <!-- Search modal -->
+  <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" data-focus-input="#search">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-block position-relative border-0 pb-3">
+          <form class="position-relative w-100 mt-2 mb-4">
+            <button class="btn-close position-absolute top-50 end-0 translate-middle-y m-0 me-n1" type="reset"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+            <i class="ai-search fs-xl position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+            <input class="form-control form-control-lg px-5" type="search" placeholder="Type to search"
+              data-focus-on-open="[" modal ", " #searchModal " ]">
+          </form>
+          <div class="fs-xs fw-medium text-body-secondary text-uppercase">Suggestions</div>
+        </div>
+        <div class="modal-body pt-3">
+          <div class="d-flex align-items-center border-bottom pb-4 mb-4">
+            <a class="position-relative d-inline-block flex-shrink-0 bg-secondary rounded-1" href="shop-single.html">
+              <span class="badge bg-success position-absolute top-0 start-100 translate-middle ms-n1">Shop</span>
+              <img src="assets/img/shop/cart/01.png" width="90" alt="Product">
+            </a>
+            <div class="ps-3">
+              <h4 class="h6 mb-2">
+                <a href="shop-single.html">Candle in concrete bowl</a>
+              </h4>
+              <span class="mb-0 me-2">$11.00</span>
+              <del class="fs-sm text-body-secondary ms-auto">$15.00</del>
+            </div>
+          </div>
+          <div class="d-flex align-items-center border-bottom pb-4 mb-4">
+            <a class="position-relative d-inline-block flex-shrink-0" href="#">
+              <span class="badge bg-info position-absolute top-0 start-100 translate-middle ms-n1">Blog</span>
+              <img class="rounded-1" src="assets/img/landing/shop-1/instagram/02.jpg" width="90" alt="Post">
+            </a>
+            <div class="ps-3">
+              <h4 class="h6 mb-0">
+                <a href="#">Bedroom decoration explained. Tips & tricks from the field experts.</a>
+              </h4>
+            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <a class="position-relative d-inline-block flex-shrink-0 bg-secondary rounded-1" href="shop-single.html">
+              <span class="badge bg-success position-absolute top-0 start-100 translate-middle ms-n1">Shop</span>
+              <img src="assets/img/shop/cart/02.png" width="90" alt="Product">
+            </a>
+            <div class="ps-3">
+              <h4 class="h6 mb-2">
+                <a href="shop-single.html">Exquisite glass vase</a>
+              </h4>
+              <span class="mb-0 me-2">$23.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart offcanvas -->
+  <div class="offcanvas offcanvas-end py-2 p-sm-4 p-md-5" id="cartOffcanvas" style="width: 680px;">
+
+
+    <!-- Body -->
+    <div class="offcanvas-body">
+
+      <!-- Item -->
+      <div class="d-sm-flex align-items-center pb-4">
+        <a class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-sm-2 p-md-3 mb-2 mb-sm-0"
+          href="shop-single.html"><img src="assets/img/shop/cart/01.png" width="110" alt="Product"></a>
+        <div class="w-100 pt-1 ps-sm-4">
+          <div class="d-flex">
+            <div class="me-3">
+              <h3 class="h5 mb-2">
+                <a href="shop-single.html">Candle in concrete bowl</a>
+              </h3>
+              <div class="d-flex flex-wrap">
+                <div class="text-body-secondary fs-sm me-3">
+                  Color: <span class="text-dark fw-medium">Gray night</span>
+                </div>
+                <div class="text-body-secondary fs-sm me-3">
+                  Weight: <span class="text-dark fw-medium">140g</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-end ms-auto">
+              <div class="fs-5 mb-2">$11.00</div>
+              <del class="text-body-secondary ms-auto">$15.00</del>
+            </div>
+          </div>
+          <div class="count-input ms-n3">
+            <button class="btn btn-icon fs-xl" type="button" data-decrement="">-</button>
+            <input class="form-control" type="number" value="2" readonly="">
+            <button class="btn btn-icon fs-xl" type="button" data-increment="">+</button>
+          </div>
+          <div class="nav justify-content-end mt-n5 mt-sm-n3">
+            <a class="nav-link fs-xl p-2" href="#" data-bs-toggle="tooltip" title="Remove" aria-label="Remove">
+              <i class="ai-trash"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item -->
+      <div class="d-sm-flex align-items-center border-top py-4">
+        <a class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-sm-2 p-md-3 mb-2 mb-sm-0"
+          href="shop-single.html">
+          <img src="assets/img/shop/cart/02.png" width="110" alt="Product">
+        </a>
+        <div class="w-100 pt-1 ps-sm-4">
+          <div class="d-flex">
+            <div class="me-3">
+              <h3 class="h5 mb-2">
+                <a href="shop-single.html">Exquisite glass vase</a>
+              </h3>
+            </div>
+            <div class="text-end ms-auto">
+              <div class="fs-5 mb-2">$23.00</div>
+            </div>
+          </div>
+          <div class="count-input ms-n3">
+            <button class="btn btn-icon fs-xl" type="button" data-decrement="">-</button>
+            <input class="form-control" type="number" value="1" readonly="">
+            <button class="btn btn-icon fs-xl" type="button" data-increment="">+</button>
+          </div>
+          <div class="nav justify-content-end mt-n5 mt-sm-n3">
+            <a class="nav-link fs-xl p-2" href="#" data-bs-toggle="tooltip" title="Remove" aria-label="Remove">
+              <i class="ai-trash"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item -->
+      <div class="d-sm-flex align-items-center border-top pt-4">
+        <a class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-sm-2 p-md-3 mb-2 mb-sm-0"
+          href="shop-single.html">
+          <img src="assets/img/shop/cart/03.png" width="110" alt="Product">
+        </a>
+        <div class="w-100 pt-1 ps-sm-4">
+          <div class="d-flex">
+            <div class="me-3">
+              <h3 class="h5 mb-2">
+                <a href="shop-single.html">Set for a dinner party of 7 items</a>
+              </h3>
+            </div>
+            <div class="text-end ms-auto">
+              <div class="fs-5 mb-2">$47.00</div>
+            </div>
+          </div>
+          <div class="count-input ms-n3">
+            <button class="btn btn-icon fs-xl" type="button" data-decrement="">-</button>
+            <input class="form-control" type="number" value="1" readonly="">
+            <button class="btn btn-icon fs-xl" type="button" data-increment="">+</button>
+          </div>
+          <div class="nav justify-content-end mt-n5 mt-sm-n3">
+            <a class="nav-link fs-xl p-2" href="#" data-bs-toggle="tooltip" title="Remove" aria-label="Remove">
+              <i class="ai-trash"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coupon input + Total -->
+    <div class="px-4 pb-3 pb-sm-4 pb-sm-5">
+      <div class="d-sm-flex align-items-center border-top pt-4">
+        <div class="input-group input-group-sm border-dashed mb-3 mb-sm-0 me-sm-4 me-md-5">
+          <input class="form-control text-uppercase" type="text" placeholder="Your coupon code">
+          <button class="btn btn-secondary" type="button">Apply coupon</button>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+          <span class="fs-xl me-3">Total:</span>
+          <span class="h3 mb-0">$92.00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="d-flex align-items-center justify-content-between px-4 pb-3">
+      <div class="nav d-none d-sm-block">
+        <a class="nav-link fw-semibold px-0" href="#cartOffcanvas" data-bs-dismiss="offcanvas">
+          <i class="ai-chevron-left fs-xl me-2"></i> Back to shop
+        </a>
+      </div>
+      <a class="btn btn-lg btn-primary w-100 w-sm-auto" href="shop-checkout.html">
+        Proceed to checkout
+        <i class="ai-chevron-right ms-2 me-n1"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Page wrapper -->
+  <main class="page-wrapper">
+
+    <!-- Navbar. Remove 'fixed-top' class to make the navigation bar scrollable with the page -->
+    <header class="navbar navbar-expand-lg fixed-top bg-light">
+      <div class="container">
+
+        <!-- Navbar brand (Logo) -->
+        <a class="navbar-brand" href="/">
+          <img style="height: 40px;" src="{% static 'images/white_logo.png' %}" class="logo-light" height="40" alt="Light Logo">
+          <img style="height: 40px;" src="{% static 'images/dark_logo.png' %}" class="logo-dark" height="40" alt="Dark Logo">
+      </a>
+
+        
+
+        <!-- Theme switcher -->
+        <div class="form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto" data-bs-toggle="mode">
+          <input class="form-check-input" type="checkbox" id="theme-mode">
+          <label class="form-check-label" for="theme-mode">
+            <i class="ai-sun fs-lg"></i>
+          </label>
+          <label class="form-check-label" for="theme-mode">
+            <i class="ai-moon fs-lg"></i>
+          </label>
+        </div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+              const themeSwitch = document.querySelector("#theme-switch");
+              const htmlElement = document.documentElement;
+      
+              // Проверяем сохранённую тему
+              const savedTheme = localStorage.getItem("theme");
+              if (savedTheme === "dark") {
+                  htmlElement.setAttribute("data-bs-theme", "dark");
+                  themeSwitch.checked = true;
+              }
+      
+              // Обработчик переключения темы
+              themeSwitch.addEventListener("change", function () {
+                  if (themeSwitch.checked) {
+                      htmlElement.setAttribute("data-bs-theme", "dark");
+                      localStorage.setItem("theme", "dark");
+                  } else {
+                      htmlElement.setAttribute("data-bs-theme", "light");
+                      localStorage.setItem("theme", "light");
+                  }
+              });
+          });
+      </script>
+
+        <!-- Search + Account + Cart -->
+        <div class="nav align-items-center order-lg-3 ms-n1 me-3 me-sm-0">
+          <a class="nav-link fs-4 p-2 mx-sm-1" href="#searchModal" data-bs-toggle="modal" aria-label="Search">
+            <i class="ai-search"></i>
+          </a>
+          
+          
+        </div>
+
+        <!-- Mobile menu toggler (Hamburger) -->
+        <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar collapse (Main navigation) -->
+        <nav class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
+
+            <li class="nav-item">
+              <a class="nav-link" href="docs/getting-started.html">Каталог</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="docs/getting-started.html">Главная</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="docs/getting-started.html">О компании</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="docs/getting-started.html">Контакты</a>
+            </li>
+
+
+            
+          </ul>
+          
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section>
+      <div class="jarallax bg-dark min-vh-90 py-5" data-jarallax="" data-type="scroll-opacity" data-speed="0.7">
+        <div class="position-absolute top-0 start-0 w-100 h-100 opacity-40"></div>
+        <div class="jarallax-img" style="background-image: url({% static 'images/fon.jpeg' %});"></div>
+        <div class="container position-relative z-5 py-sm-4 py-lg-5 mt-4">
+
+          <!-- Text + button -->
+          <div class="row pt-lg-2 py-xl-4 py-xxl-5 mb-md-4 mb-lg-5">
+            <div class="col-md-10 col-lg-9 col-xl-8 col-xxl-7 pt-5 mb-5">
+              <h4 class="display-5 text-light text-uppercase pb-sm-2 pb-md-3">КОМПАНИЯ N GROUP ENGINEERING – ПРОФЕССИОНАЛЬНЫЕ РЕШЕНИЯ В СФЕРЕ СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ</h1>
+              <p class="text-light opacity-70 pb-3 pb-md-4 mb-3" style="max-width: 520px;">От сварочных расходников до комплектующих для вентиляции — подберём нужное быстро и по выгодной цене.</p><a
+                class="btn btn-outline-light" href="shop-catalog.html">Посмотреть каталог</a>
+            </div>
+          </div>
+
+          <section class="card-hover position-relative bg-secondary rounded-1 p-3  container py-4 mt-sm-3 mb-sm-4 my-md-4 my-lg-5" >
+            <div class="swiper pb-xxl-4 mb-xl-2" data-swiper-options="{
+                " slidesPerView ": 1, " spaceBetween " : 24, " pagination " : { " el " : " .swiper-pagination " , " clickable " : true
+              }, " breakpoints " : { " 400 " : { " slidesPerView " : 2, " spaceBetween " : 24 }, " 700 " : { " slidesPerView " :
+              3, " spaceBetween " : 30 }, " 991 " : { " slidesPerView " : 4, " spaceBetween " : 40 } } }">
+              <div class="swiper-wrapper">
+      
+                <!-- Item -->
+                <div class="swiper-slide text-center text-sm-start">
+                  <div class="text-primary mb-3 mb-sm-4">
+                    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M37.7794 10.6909L20.2794 1.94092C20.1926 1.89757 20.097 1.875 20 1.875C19.903 1.875 19.8074 1.89757 19.7206 1.94092L2.22063 10.6909C2.11674 10.7428 2.02936 10.8227 1.96832 10.9215C1.90727 11.0203 1.87496 11.1341 1.87501 11.2503V28.7503C1.87437 28.867 1.90641 28.9815 1.96749 29.0809C2.02857 29.1803 2.11626 29.2606 2.22063 29.3128L19.7206 38.0628C19.8074 38.1061 19.903 38.1287 20 38.1287C20.097 38.1287 20.1926 38.1061 20.2794 38.0628L37.7794 29.3128C37.8838 29.2606 37.9714 29.1803 38.0325 29.0809C38.0936 28.9815 38.1256 28.867 38.125 28.7503V11.2503C38.1251 11.1341 38.0928 11.0203 38.0317 10.9215C37.9706 10.8227 37.8833 10.7428 37.7794 10.6909ZM20 19.3015L15.1144 16.8584L30.7306 8.56279L36.1056 11.2503L20 19.3015ZM10.1144 14.3584L25.7306 6.06279L29.3556 7.87529L13.7413 16.1722L10.1144 14.3584ZM9.37501 15.3865L13.125 17.2615V22.2415L11.6919 20.8084C11.5747 20.6912 11.4158 20.6253 11.25 20.6253H9.37501V15.3865ZM20 3.19904L24.3575 5.37529L8.74126 13.6722L3.89751 11.2503L20 3.19904ZM3.12501 12.2615L8.12501 14.7615V21.2503C8.12501 21.416 8.19086 21.575 8.30807 21.6922C8.42528 21.8094 8.58425 21.8753 8.75001 21.8753H10.9913L13.3081 24.1922C13.3955 24.2795 13.5069 24.339 13.6281 24.3632C13.7493 24.3873 13.875 24.3749 13.9892 24.3276C14.1034 24.2803 14.201 24.2002 14.2696 24.0974C14.3383 23.9947 14.375 23.8739 14.375 23.7503V17.8865L19.375 20.3865V36.489L3.12501 28.364V12.2615ZM20.625 36.489V20.3865L36.875 12.2615V28.364L20.625 36.489Z"
+                        fill="currentColor"></path>
+                    </svg>
+                  </div>
+                  <h3 class="h5 mb-2 mb-sm-3">Fast and free delivery</h3>
+                  <p class="fs-sm mb-0">Free delivery for all orders over $200 honcus egestas lorem honcus egestas</p>
+                </div>
+      
+                <!-- Item-->
+                <div class="swiper-slide text-center text-sm-start">
+                  <div class="text-primary mb-3 mb-sm-4">
+                    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M38 27.4c-1.5 3.5-4 6.6-7.2 8.7s-6.9 3.3-10.8 3.3c-3.3 0-6.5-.8-9.4-2.4-2.4-1.3-4.4-3.1-6-5.2v3.1c0 .2-.1.3-.2.4a.76.76 0 0 1-.4.2.76.76 0 0 1-.4-.2c-.1-.1-.2-.2-.2-.4V30c0-.2.1-.3.2-.4 0 0 .1 0 .1-.1h0s.1 0 .1-.1h.1 4.8c.2 0 .3.1.4.2a.76.76 0 0 1 .2.4.76.76 0 0 1-.2.4.76.76 0 0 1-.4.2H5.1c2.3 3.3 5.7 5.7 9.6 6.9 4.2 1.3 8.8 1 12.8-.8s7.3-5 9.1-9c1.9-4 2.2-8.5 1-12.8C36.4 10.7 33.7 7 30 4.6s-8.1-3.4-12.5-2.8C13.1 2.5 9.1 4.7 6.2 8s-4.5 7.6-4.5 12c0 .2-.1.3-.2.4a.76.76 0 0 1-.4.2c-.2 0-.3-.1-.4-.2s-.2-.2-.2-.4c0-3.8 1.1-7.6 3.3-10.8S9 3.5 12.6 2C16.1.6 20 .2 23.8 1s7.2 2.6 10 5.3c2.7 2.7 4.6 6.2 5.3 10 .7 3.7.3 7.6-1.1 11.1zm-14.1-3.8c0 1-.4 2-1.1 2.8-.6.5-1.3.9-2 1.1v.7c0 .2-.1.4-.2.5s-.3.2-.5.2-.4-.1-.5-.2-.2-.3-.2-.5v-.7a3.09 3.09 0 0 1-2-1.1c-.7-.7-1.1-1.7-1.1-2.8 0-.2.1-.4.2-.5s.3-.2.5-.2.4.1.5.2.2.3.2.5c0 .7.3 1.3.7 1.8.5.5 1.1.7 1.8.7s1.3-.3 1.8-.7c.5-.5.7-1.1.7-1.8s-.3-1.8-2.7-2.5c-3-.9-3.7-2.6-3.7-3.8 0-1 .4-2 1.1-2.8.6-.6 1.3-.9 2-1.1v-.7c0-.2.1-.4.2-.5s.3-.2.5-.2.4.1.5.2.2.3.2.5v.7a3.09 3.09 0 0 1 2 1.1c.7.7 1.1 1.7 1.1 2.8 0 .2-.1.4-.2.5s-.3.2-.5.2-.4-.1-.5-.2-.2-.3-.2-.5c0-.7-.3-1.3-.7-1.8-.5-.5-1.1-.7-1.8-.7s-1.3.3-1.8.7c-.5.5-.7 1.1-.7 1.8 0 .4 0 1.7 2.7 2.5 2.4.7 3.7 2 3.7 3.8z"
+                        fill="currentColor"></path>
+                    </svg>
+                  </div>
+                  <h3 class="h5 mb-2 mb-sm-3">Money back guarantee</h3>
+                  <p class="fs-sm mb-0">We return money within 30 days honcus egestas lorem honcus egestas</p>
+                </div>
+      
+                <!-- Item -->
+                <div class="swiper-slide text-center text-sm-start">
+                  <div class="text-primary mb-3 mb-sm-4">
+                    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M33.6825 13.683C33.6825 6.12609 27.5564 0 19.9995 0C12.4426 0 6.31646 6.12609 6.31646 13.683C4.36283 13.9263 2.51562 15.2033 2.51562 18.168V25.3136C2.51562 28.6583 4.85694 29.8746 7.07663 29.8746H9.28111C9.70091 29.8746 10.0413 29.5342 10.0413 29.1144V14.3976C10.0413 13.9778 9.70091 13.6374 9.28111 13.6374H7.83679C7.83679 6.92018 13.2823 1.47472 19.9995 1.47472C26.7167 1.47472 32.1621 6.92018 32.1621 13.6374H30.7178C30.298 13.6374 29.9577 13.9778 29.9577 14.3976V29.0916C29.9577 29.5114 30.298 29.8518 30.7178 29.8518H32.1621C31.9493 35.0741 29.4407 36.298 24.4312 36.5184V36.0091C24.4312 35.1694 23.7506 34.4888 22.9109 34.4888H18.1295C17.2898 34.4888 16.6091 35.1694 16.6091 36.0091V38.4797C16.6091 39.3194 17.2898 40 18.1295 40H22.9261C23.7658 40 24.4464 39.3194 24.4464 38.4797V38.0388C29.2659 37.8183 33.4316 36.8225 33.6825 29.8062C35.6361 29.5629 37.4833 28.2858 37.4833 25.3212V18.1756C37.4833 15.1957 35.6437 13.9263 33.6825 13.683ZM8.52094 15.1045V28.3314H7.03862C5.91357 28.3314 3.99795 27.9361 3.99795 25.2908V18.1452C3.99795 15.5226 5.89077 15.1045 7.03862 15.1045H8.52094ZM22.9261 37.3318V38.4873H18.1295V36.0167H22.9261V37.3318ZM35.963 25.3136C35.963 27.9361 34.0702 28.3542 32.9223 28.3542H31.478V15.1577H32.9603C34.0854 15.1577 36.001 15.553 36.001 18.1984L35.963 25.3136Z"
+                        fill="currentColor"></path>
+                    </svg>
+                  </div>
+                  <h3 class="h5 mb-2 mb-sm-3">24/7 customer support</h3>
+                  <p class="fs-sm mb-0">Friendly 24/7 customer support honcus egestas lorem honcus egestas</p>
+                </div>
+      
+                <!-- Item -->
+                <div class="swiper-slide text-center text-sm-start">
+                  <div class="text-primary mb-3 mb-sm-4">
+                    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M35.1422 8.0989L20.1085 0.0881401C19.8855 -0.0308936 19.6182 -0.0292231 19.3968 0.0923166L4.77905 8.10308C4.53931 8.23464 4.39062 8.48607 4.39062 8.75964V19.2237C4.3994 27.8255 9.49571 35.6074 17.377 39.0535L19.406 39.9377C19.5956 40.0204 19.8115 40.0208 20.0016 39.9385L22.2879 38.9512C30.3153 35.5798 35.5378 27.7228 35.5386 19.0162V8.75964C35.5386 8.48315 35.3862 8.22879 35.1422 8.0989ZM34.0417 19.0162C34.04 27.1226 29.1764 34.4371 21.7019 37.5742L21.6969 37.5767L19.7059 38.4362L17.9759 37.6815C10.6397 34.4738 5.89546 27.2307 5.88711 19.2237V9.20278L19.7614 1.59882L34.0417 9.20821V19.0162Z"
+                        fill="currentColor"></path>
+                      <path
+                        d="M14.2398 18.7389C13.9713 18.4244 13.4989 18.3873 13.1844 18.6558C12.8699 18.924 12.8327 19.3967 13.1013 19.7108L17.0549 24.3406C17.3188 24.6497 17.7812 24.6919 18.0961 24.4354L27.3039 16.9442C27.6247 16.6836 27.6731 16.2121 27.4121 15.8913C27.1514 15.571 26.6799 15.5221 26.3591 15.7831L17.7185 22.8124L14.2398 18.7389Z"
+                        fill="currentColor"></path>
+                    </svg>
+                  </div>
+                  <h3 class="h5 mb-2 mb-sm-3">Secure online payment</h3>
+                  <p class="fs-sm mb-0">We possess SSL / Secure сertificate honcus egestas lorem honcus egestas</p>
+                </div>
+              </div>
+      
+              <!-- Pagination (Bullets) -->
+              <div class="swiper-pagination position-relative bottom-0 pt-1 mt-4 d-lg-none"></div>
+            </div>
+          </section>
+          
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="container py-3 my-lg-3 my-xl-4 my-xxl-5">
+      <div class="row pt-2 py-md-4">
+        <div class="col-lg-10 col-xl-9">
+          <p class="lead text-dark pb-md-2 pb-lg-3 mb-2">Мы готовы предложить вам профессиональную помощь и индивидуальный подход. Наши специалисты обладают большим опытом и знаниями, чтобы решить ваши задачи быстро и эффективно.
+
+            Свяжитесь с нами, и мы найдём лучшее решение для вас!</p>
+          <a class="btn btn-lg btn-link px-0" href="#">
+            О компании
+            <i class="ai-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="container mt-n3 mt-sm-0 pb-5 mb-1 mb-sm-2 mb-lg-3 mb-xl-4 mb-xxl-5">
+      <h2 class="h1 pb-3 mb-lg-4">Категории</h2>
+      <div class="row g-4 pb-2 pb-md-4">
+        
+        <!-- Левая карточка (Крепеж) -->
+        <div class="col-12 col-md-4">
+          <div class="card zoom-effect h-100 border-0 rounded-1 overflow-hidden" style="min-height: 320px;">
+            <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-10 z-2"></span>
+            <div class="zoom-effect-wrapper rounded-1 position-absolute top-50 start-50 translate-middle w-100 h-100">
+              <div
+                class="zoom-effect-img bg-size-cover bg-position-center position-absolute top-0 start-0 w-100 h-100"
+                style="background-image: url({% static 'images/first.jpeg' %});">
+              </div>
+            </div>
+            <a class="card-body d-flex flex-column justify-content-end align-items-start position-absolute top-0 start-0 w-100 h-100 text-decoration-none z-3"
+              href="/">
+              <span class="bg-light text-dark rounded-pill fs-sm fw-semibold lh-1 py-3 px-4">Крепеж</span>
+            </a>
+          </div>
+        </div>
+    
+        <!-- Правая колонка (2 больших + 2 маленьких карточки) -->
+        <div class="col-12 col-md-8">
+          <div class="card zoom-effect border-0 rounded-1 overflow-hidden">
+            <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-10 z-2"></span>
+            <div class="zoom-effect-wrapper rounded-1">
+              <img class="zoom-effect-img" src="{% static 'images/second.jpeg' %}" alt="Category image">
+            </div>
+            <a class="card-body d-flex flex-column justify-content-end align-items-start position-absolute top-0 start-0 w-100 h-100 text-decoration-none z-3"
+              href="shop-catalog.html">
+              <span class="bg-light text-dark rounded-pill fs-sm fw-semibold lh-1 py-3 px-4">Система вентиляции</span>
+            </a>
+          </div>
+    
+          <div class="row row-cols-2 g-4 pt-4">
+            <!-- Карточка 3 -->
+            <div class="col">
+              <div class="card zoom-effect border-0 rounded-1 overflow-hidden">
+                <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-10 z-2"></span>
+                <div class="zoom-effect-wrapper rounded-1">
+                  <img class="zoom-effect-img" src="{% static 'images/third.jpeg' %}" alt="Category image">
+                </div>
+                <a class="card-body d-flex flex-column justify-content-end align-items-start position-absolute top-0 start-0 w-100 h-100 text-decoration-none z-3"
+                  href="shop-catalog.html">
+                  <span class="bg-light text-dark rounded-pill fs-sm fw-semibold lh-1 py-3 px-4">Сварочные материалы</span>
+                </a>
+              </div>
+            </div>
+    
+            <!-- Карточка 4 -->
+            <div class="col">
+              <div class="card zoom-effect border-0 rounded-1 overflow-hidden">
+                <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-10 z-2"></span>
+                <div class="zoom-effect-wrapper rounded-1">
+                  <img class="zoom-effect-img" src="{% static 'images/foutrh.jpeg' %}" alt="Category image">
+                </div>
+                <a class="card-body d-flex flex-column justify-content-end align-items-start position-absolute top-0 start-0 w-100 h-100 text-decoration-none z-3"
+                  href="shop-catalog.html">
+                  <span class="bg-light text-dark rounded-pill fs-sm fw-semibold lh-1 py-3 px-4">Прочее</span>
+                </a>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Trending products (carousel) -->
+    <section class="container pb-5 mb-lg-3 mb-xl-4 mb-xxl-5">
+      <div class="d-flex align-items-center justify-content-between pb-4 mb-2 mb-md-3">
+        <h2 class="h1 pt-1 mb-0">Популярные продукты</h2>
+    
+        <!-- Slider prev/next buttons -->
+        <div class="d-flex">
+          <button class="btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle ms-3 d-inline-flex" type="button"
+            id="trending-prev" aria-label="Prev">
+            <i class="ai-arrow-left"></i>
+          </button>
+          <button class="btn btn-next btn-icon btn-sm btn-outline-primary rounded-circle ms-3 d-inline-flex" type="button"
+            id="trending-next" aria-label="Next">
+            <i class="ai-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    
+      <!-- Swiper slider -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          
+          <!-- Item 1 -->
+          <div class="swiper-slide">
+            <div class="card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
+              <span class="badge bg-danger bg-opacity-10 text-danger position-absolute top-0 start-0 mt-3 ms-3">Sale</span>
+              <a class="d-block p-2 p-xl-4" href="shop-single.html">
+                <img class="d-block mx-auto rotate-image" src="{% static 'images/electrod.png' %}" width="226" alt="Product">
+              </a>
+            </div>
+            <div class="d-flex mb-1">
+              <h3 class="h6 mb-0">
+                <a href="shop-single.html">Loft style lamp</a>
+              </h3>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="me-2">$21.00</span>
+              <del class="fs-sm text-body-secondary">$35.00</del>
+              <div class="nav ms-auto" data-bs-toggle="tooltip" data-bs-template="<div class=&quot;tooltip fs-xs&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-light text-body-secondary p-0&quot;></div></div>" data-bs-placement="left" aria-label="Add to cart" data-bs-original-title="Add to cart">
+                <a class="nav-link fs-lg py-2 px-1" href="#" aria-label="Add to Cart">
+                  <i class="ai-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <style>
+            .rotate-image {
+              transition: transform 0.5s ease;
+            }
+          
+            .swiper-slide:hover .rotate-image {
+              transform: rotate(90deg);
+            }
+          </style>
+          
+          <div class="swiper-slide">
+            <div class="card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
+              <span class="badge bg-danger bg-opacity-10 text-danger position-absolute top-0 start-0 mt-3 ms-3">Sale</span>
+              <a class="d-block p-2 p-xl-4" href="shop-single.html">
+                <img class="d-block mx-auto" src="{% static 'images/electrod.png' %}" width="226" alt="Product">
+              </a>
+            </div>
+            <div class="d-flex mb-1">
+              <h3 class="h6 mb-0">
+                <a href="shop-single.html">Loft style lamp</a>
+              </h3>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="me-2">$21.00</span>
+              <del class="fs-sm text-body-secondary">$35.00</del>
+              <div class="nav ms-auto" data-bs-toggle="tooltip" data-bs-template="<div class=&quot;tooltip fs-xs&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-light text-body-secondary p-0&quot;></div></div>" data-bs-placement="left" aria-label="Add to cart" data-bs-original-title="Add to cart">
+                <a class="nav-link fs-lg py-2 px-1" href="#" aria-label="Add to Cart">
+                  <i class="ai-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
+              <span class="badge bg-danger bg-opacity-10 text-danger position-absolute top-0 start-0 mt-3 ms-3">Sale</span>
+              <a class="d-block p-2 p-xl-4" href="shop-single.html">
+                <img class="d-block mx-auto" src="{% static 'images/electrod.png' %}" width="226" alt="Product">
+              </a>
+            </div>
+            <div class="d-flex mb-1">
+              <h3 class="h6 mb-0">
+                <a href="shop-single.html">Loft style lamp</a>
+              </h3>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="me-2">$21.00</span>
+              <del class="fs-sm text-body-secondary">$35.00</del>
+              <div class="nav ms-auto" data-bs-toggle="tooltip" data-bs-template="<div class=&quot;tooltip fs-xs&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-light text-body-secondary p-0&quot;></div></div>" data-bs-placement="left" aria-label="Add to cart" data-bs-original-title="Add to cart">
+                <a class="nav-link fs-lg py-2 px-1" href="#" aria-label="Add to Cart">
+                  <i class="ai-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
+              <span class="badge bg-danger bg-opacity-10 text-danger position-absolute top-0 start-0 mt-3 ms-3">Sale</span>
+              <a class="d-block p-2 p-xl-4" href="shop-single.html">
+                <img class="d-block mx-auto" src="{% static 'images/electrod.png' %}" width="226" alt="Product">
+              </a>
+            </div>
+            <div class="d-flex mb-1">
+              <h3 class="h6 mb-0">
+                <a href="shop-single.html">Loft style lamp</a>
+              </h3>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="me-2">$21.00</span>
+              <del class="fs-sm text-body-secondary">$35.00</del>
+              <div class="nav ms-auto" data-bs-toggle="tooltip" data-bs-template="<div class=&quot;tooltip fs-xs&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-light text-body-secondary p-0&quot;></div></div>" data-bs-placement="left" aria-label="Add to cart" data-bs-original-title="Add to cart">
+                <a class="nav-link fs-lg py-2 px-1" href="#" aria-label="Add to Cart">
+                  <i class="ai-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
+              <span class="badge bg-danger bg-opacity-10 text-danger position-absolute top-0 start-0 mt-3 ms-3">Sale</span>
+              <a class="d-block p-2 p-xl-4" href="shop-single.html">
+                <img class="d-block mx-auto" src="{% static 'images/electrod.png' %}" width="226" alt="Product">
+              </a>
+            </div>
+            <div class="d-flex mb-1">
+              <h3 class="h6 mb-0">
+                <a href="shop-single.html">Loft style lamp</a>
+              </h3>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="me-2">$21.00</span>
+              <del class="fs-sm text-body-secondary">$35.00</del>
+              <div class="nav ms-auto" data-bs-toggle="tooltip" data-bs-template="<div class=&quot;tooltip fs-xs&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-light text-body-secondary p-0&quot;></div></div>" data-bs-placement="left" aria-label="Add to cart" data-bs-original-title="Add to cart">
+                <a class="nav-link fs-lg py-2 px-1" href="#" aria-label="Add to Cart">
+                  <i class="ai-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card-hover position-relative bg-secondary rounded-1 p-3 mb-4">
+              <span class="badge bg-danger bg-opacity-10 text-danger position-absolute top-0 start-0 mt-3 ms-3">Sale</span>
+              <a class="d-block p-2 p-xl-4" href="shop-single.html">
+                <img class="d-block mx-auto" src="{% static 'images/electrod.png' %}" width="226" alt="Product">
+              </a>
+            </div>
+            <div class="d-flex mb-1">
+              <h3 class="h6 mb-0">
+                <a href="shop-single.html">Loft style lamp</a>
+              </h3>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="me-2">$21.00</span>
+              <del class="fs-sm text-body-secondary">$35.00</del>
+              <div class="nav ms-auto" data-bs-toggle="tooltip" data-bs-template="<div class=&quot;tooltip fs-xs&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-light text-body-secondary p-0&quot;></div></div>" data-bs-placement="left" aria-label="Add to cart" data-bs-original-title="Add to cart">
+                <a class="nav-link fs-lg py-2 px-1" href="#" aria-label="Add to Cart">
+                  <i class="ai-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    
+      <!-- View all button -->
+      <div class="text-center mt-2 mt-md-0 mb-xxl-2 pt-4 pt-md-5 pb-2 pb-sm-3 pb-md-4">
+        <a class="btn btn-outline-primary w-100 w-sm-auto" href="shop-catalog.html">Посмотреть все продукты</a>
+      </div>
+    </section>
+    
+    <!-- Подключение Swiper.js -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper(".swiper", {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          loop: true,
+          navigation: {
+            nextEl: "#trending-next",
+            prevEl: "#trending-prev"
+          },
+          breakpoints: {
+            500: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1000: { slidesPerView: 4 }
+          }
+        });
+    
+        // Показываем кнопки сразу после загрузки
+        document.getElementById("trending-prev").style.display = "flex";
+        document.getElementById("trending-next").style.display = "flex";
+      });
+    </script>
+    
+    
+    <!-- Подключение Swiper.js -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper(".swiper", {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          loop: true,
+          navigation: {
+            nextEl: "#trending-next",
+            prevEl: "#trending-prev"
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+          },
+          breakpoints: {
+            500: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1000: { slidesPerView: 4 }
+          }
+        });
+    
+        // Показываем кнопки сразу после загрузки
+        document.getElementById("trending-prev").style.display = "flex";
+        document.getElementById("trending-next").style.display = "flex";
+      });
+    </script>
+
+
+    <!-- Gallery with hotsposts -->
+    <section class="container pb-5 mb-lg-4 mb-xl-5">
+      <h2 class="h1 pb-3 mb-lg-4">Ideas for your home</h2>
+      <div class="row pb-2 pb-sm-3 pb-md-4 mb-xxl-2 g-4">
+        <div class="col-md-6">
+          <div class="hotspots hotspots-alt">
+            <img class="d-block rounded-1" src="assets/img/landing/shop-1/gallery/01.jpg" alt="Image">
+            <a class="hotspot" style="top: 20%; left: 27%;" tabindex="0" role="button" data-bs-toggle="popover"
+              data-bs-trigger="focus" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<a href="
+              shop-single.html " class=" d-flex text-decoration-none mb-2 "><span class=" h6 fs-sm mb-0 ">Bronze floor<br>led
+                lamp</span><i class=" ai-chevron-right fs-xl text-dark ms-2 "></i></a><span>$185.00</span>"
+              aria-label="Hotspot">
+              <div class="hotspot-inner"></div>
+            </a>
+            <a class="hotspot" style="top: 14.7%; right: 32.7%;" tabindex="0" role="button" data-bs-toggle="popover"
+              data-bs-trigger="focus" data-bs-placement="bottom" data-bs-html="true" data-bs-content="<a href="
+              shop-single.html " class=" d-flex text-decoration-none mb-2 "><span class=" h6 fs-sm mb-0 ">Photo
+                frame<br>Defacto</span><i class=" ai-chevron-right fs-xl text-dark ms-2 "></i></a><span>$21.00</span>"
+              aria-label="Hotspot">
+              <div class="hotspot-inner"></div>
+            </a>
+            <a class="hotspot" style="bottom: 41%; left: 34.6%;" tabindex="0" role="button" data-bs-toggle="popover"
+              data-bs-trigger="focus" data-bs-placement="top" data-bs-html="true" data-bs-content="<a href="
+              shop-single.html " class=" d-flex text-decoration-none mb-2 "><span class=" h6 fs-sm mb-0 ">Yellow
+                satin<br>armchair</span><i class=" ai-chevron-right fs-xl text-dark
+              ms-2 "></i></a><span>$276.00</span>" aria-label="Hotspot">
+              <div class="hotspot-inner"></div>
+            </a>
+            <a class="hotspot" style="bottom: 24.3%; right: 27.5%;" tabindex="0" role="button" data-bs-toggle="popover"
+              data-bs-trigger="focus" data-bs-placement="top" data-bs-html="true" data-bs-content="<a href="
+              shop-single.html " class=" d-flex text-decoration-none mb-2 "><span class=" h6 fs-sm mb-0 ">Gary
+                concrete<br>table stand</span><i
+                class=" ai-chevron-right fs-xl text-dark ms-2 "></i></a><span>$35.00</span>" aria-label="Hotspot">
+              <div class="hotspot-inner"></div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <img class="d-block rounded-1 mb-4" src="assets/img/landing/shop-1/gallery/02.jpg" alt="Image">
+          <img class="rounded-1" src="assets/img/landing/shop-1/gallery/03.jpg" alt="Image">
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <img class="rounded-1" src="assets/img/landing/shop-1/gallery/04.jpg" alt="Image">
+        </div>
+      </div>
+    </section>
+    
+
+  
+
+    <!-- Features (carousel on screens < 992px) -->
+    
+
+    
+
+    <!-- Banner + Subscription CTA -->
+    <section class="container pb-5 mb-lg-4 mb-xl-5">
+      <div class="row pb-2 pb-sm-3 pb-md-4 mb-xlx-1">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="row pb-2 pb-sm-3 pb-lg-0 pb-xxl-2 mb-4 mb-lg-5">
+            <div class="col-md-11 col-xl-10">
+              <h2 class="h1 mb-lg-4">Discount and sales</h2>
+              <p class="mb-0">Find aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur neque congue aliqua dolor do amet sint ovar velit officia reprehenderit in voluptate pariatur.
+              </p>
+            </div>
+          </div>
+          <div class="position-relative pt-5 pb-2 py-sm-5 px-4 ps-sm-5 pe-sm-0">
+            <div class="bg-primary position-absolute top-0 start-0 h-100 rounded-1 opacity-30 d-none d-sm-block"
+              style="width: calc(100% - 38px);"></div>
+            <div class="bg-primary position-absolute top-0 start-0 w-100 h-100 rounded-1 opacity-30 d-sm-none"></div>
+            <div class="d-sm-flex align-items-center position-relative z-2 py-xl-3 px-2 px-sm-0 ps-xl-3">
+              <div class="text-center text-sm-start me-sm-n4 me-md-3 me-lg-n2">
+                <div class="fs-xs text-uppercase pb-4 pb-md-5 mb-2 mb-md-0 mb-lg-3">Best selling</div>
+                <h2 class="pb-3 mb-md-4">Wall clocks with a discount of up to 40%</h2>
+                <div
+                  class="countdown d-flex flex-wrap flex-lg-nowrap justify-content-center justify-content-sm-start pb-4 pb-md-5 mb-2 mb-md-0 mb-lg-3"
+                  data-countdown-date="01/01/2026 12:00:00">
+                  <div class="text-center mb-2">
+                    <div class="bg-light rounded-1 p-2">
+                      <div class="h2 fw-normal mb-0 mx-1" data-days=""></div>
+                    </div>
+                    <span class="text-dark fs-sm">days</span>
+                  </div>
+                  <span class="text-white fs-2 mx-2">:</span>
+                  <div class="text-center mb-2">
+                    <div class="bg-light rounded-1 p-2">
+                      <div class="h2 fw-normal mb-0 mx-1" data-hours=""></div>
+                    </div>
+                    <span class="text-dark fs-sm">hours</span>
+                  </div>
+                  <span class="text-white fs-2 mx-2">:</span>
+                  <div class="text-center mb-2">
+                    <div class="bg-light rounded-1 p-2">
+                      <div class="h2 fw-normal mb-0 mx-1" data-minutes=""></div>
+                    </div>
+                    <span class="text-dark fs-sm">mins</span>
+                  </div>
+                </div>
+                <a class="btn btn-outline-dark mb-lg-3" href="shop-catalog.html">Explore the catalog</a>
+              </div>
+              <div class="flex-xl-shrink-0 mx-auto ms-lg-0 me-lg-n4" style="max-width: 362px;">
+                <img class="d-block ms-n2 ms-sm-0" src="assets/img/landing/shop-1/banner-2.png" alt="Image">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="d-flex flex-column flex-md-row flex-lg-column h-100 ps-lg-4 me-md-4 me-lg-0 ms-lg-2">
+            <div
+              class="bg-secondary d-flex rounded-1 ps-4 ps-lg-5 py-2 py-md-3 py-lg-4 mb-4 mb-md-0 mb-lg-4 me-md-4 me-lg-0">
+              <div class="d-flex flex-column ps-0 ps-sm-3 ps-md-0 ps-xl-3 py-4 me-n5 me-sm-0">
+                <div class="fs-sm text-uppercase">Sale</div>
+                <div class="my-auto me-md-n5">
+                  <div class="h3 display-2 mb-0">10%</div>
+                  <div class="h2 mb-2">off the first order</div>
+                  <div class="fs-sm">When ordering from $120 in one payment</div>
+                </div>
+              </div><img class="d-block my-2" src="assets/img/landing/shop-1/banner-1.png" width="235" alt="Image">
+            </div>
+            <div class="d-flex align-items-center border rounded-1 p-4 p-lg-5 mt-lg-auto">
+              <div class="pt-3 pb-2 px-sm-3 px-md-2 px-lg-0 px-xl-3">
+                <h3 class="h2 mb-2">Subscribe to the newsletter</h3>
+                <p class="fs-sm pb-3 mb-3">Receive information about discounts and new arrivals</p>
+                <div class="input-group input-group-sm" style="max-width: 360px;">
+                  <input class="form-control" type="email" placeholder="Your email">
+                  <button class="btn btn-primary" type="button">Subscribe</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Instagram -->
+    <section class="position-relative">
+      <div class="container position-relative z-2">
+        <div class="row align-items-center g-3 g-lg-4 mb-3 mb-lg-4">
+          <div class="col-sm-6 text-center order-sm-2">
+            <div class="ai-instagram fs-2 text-primary mb-2 mb-md-3 mb-lg-4"></div>
+            <h2 class="h1 mb-2 mb-sm-0">Follow us<br><a href="#"
+                class="text-primary text-decoration-none">#aroundecor</a></h2>
+          </div>
+          <div class="col-6 col-sm-3 order-sm-1">
+            <a class="d-block card-hover zoom-effect" href="#">
+              <div
+                class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-1 overflow-hidden z-2 opacity-0">
+                <i class="ai-instagram lead text-white position-relative z-2"></i>
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-25"></div>
+              </div>
+              <div class="zoom-effect-wrapper rounded-1">
+                <img class="zoom-effect-img" src="assets/img/landing/shop-1/instagram/01.jpg" alt="Instagram image">
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-sm-3 order-sm-3">
+            <a class="d-block card-hover zoom-effect" href="#">
+              <div
+                class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-1 overflow-hidden z-2 opacity-0">
+                <i class="ai-instagram lead text-white position-relative z-2"></i>
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-25"></div>
+              </div>
+              <div class="zoom-effect-wrapper rounded-1">
+                <img class="zoom-effect-img" src="assets/img/landing/shop-1/instagram/02.jpg" alt="Instagram image">
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="row g-3 g-lg-4">
+          <div class="col-6 col-sm-3">
+            <a class="d-block card-hover zoom-effect" href="#">
+              <div
+                class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-1 overflow-hidden z-2 opacity-0">
+                <i class="ai-instagram lead text-white position-relative z-2"></i>
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-25"></div>
+              </div>
+              <div class="zoom-effect-wrapper rounded-1">
+                <img class="zoom-effect-img" src="assets/img/landing/shop-1/instagram/03.jpg" alt="Instagram image">
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-sm-3">
+            <a class="d-block card-hover zoom-effect" href="#">
+              <div
+                class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-1 overflow-hidden z-2 opacity-0">
+                <i class="ai-instagram lead text-white position-relative z-2"></i>
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-25"></div>
+              </div>
+              <div class="zoom-effect-wrapper rounded-1">
+                <img class="zoom-effect-img" src="assets/img/landing/shop-1/instagram/04.jpg" alt="Instagram image">
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-sm-3">
+            <a class="d-block card-hover zoom-effect" href="#">
+              <div
+                class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-1 overflow-hidden z-2 opacity-0">
+                <i class="ai-instagram lead text-white position-relative z-2"></i>
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-25"></div>
+              </div>
+              <div class="zoom-effect-wrapper rounded-1">
+                <img class="zoom-effect-img" src="assets/img/landing/shop-1/instagram/05.jpg" alt="Instagram image">
+              </div>
+            </a>
+          </div>
+          <div class="col-6 col-sm-3">
+            <a class="d-block card-hover zoom-effect" href="#">
+              <div
+                class="d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100 rounded-1 overflow-hidden z-2 opacity-0">
+                <i class="ai-instagram lead text-white position-relative z-2"></i>
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-25"></div>
+              </div>
+              <div class="zoom-effect-wrapper rounded-1">
+                <img class="zoom-effect-img" src="assets/img/landing/shop-1/instagram/06.jpg" alt="Instagram image">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="d-none d-lg-block bg-dark position-absolute start-0 bottom-0 w-100" style="height: 155px;">
+        <div class="d-none d-dark-mode-block position-absolute top-0 start-0 w-100 h-100"
+          style="background-color: rgba(255,255,255, .03);"> </div>
+      </div>
+      <div class="d-lg-none bg-dark position-absolute start-0 bottom-0 w-100" style="height: 80px;">
+        <div class="d-none d-dark-mode-block position-absolute top-0 start-0 w-100 h-100"
+          style="background-color: rgba(255,255,255, .03);"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer-->
+  <footer class="footer bg-dark position-relative pb-4 pt-md-3 py-lg-4 py-xl-5">
+    <div class="d-none d-dark-mode-block position-absolute top-0 start-0 w-100 h-100"
+      style="background-color: rgba(255,255,255, .03);"></div>
+    <div class="container position-relative z-2 pt-5 pb-2" data-bs-theme="dark">
+
+      <!-- Columns with links -->
+      <div class="row" id="links">
+        <div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+          <h3 class="h6 text-uppercase d-none d-md-block">Useful links</h3>
+          <a class="btn-more h6 mb-1 text-uppercase text-decoration-none d-flex align-items-center collapsed d-md-none"
+            href="#useful" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="useful"
+            data-show-label="Useful links" data-hide-label="Useful links" aria-label="Useful links"></a>
+          <div class="collapse d-md-block" id="useful" data-bs-parent="#links">
+            <ul class="nav flex-column pb-2 pb-md-0">
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Trending</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Sale</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">About us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Shipping & Returns</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Delivery info</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+          <h3 class="h6 text-uppercase d-none d-md-block">Decors</h3>
+          <a class="btn-more h6 mb-1 text-uppercase text-decoration-none d-flex align-items-center collapsed d-md-none"
+            href="#decors" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="decors"
+            data-show-label="Decors" data-hide-label="Decors" aria-label="Decors"></a>
+          <div class="collapse d-md-block" id="decors" data-bs-parent="#links">
+            <ul class="nav flex-column pb-2 pb-md-0">
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Vases</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Mirrors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Paintings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Figurines</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Textile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Lighting</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Photo frames</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-xl-2 pb-2 pb-md-0">
+          <h3 class="h6 text-uppercase d-none d-md-block">Categories</h3>
+          <a class="btn-more h6 mb-1 text-uppercase text-decoration-none d-flex align-items-center collapsed d-md-none"
+            href="#categories" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="categories"
+            data-show-label="Categories" data-hide-label="Categories" aria-label="Categories"></a>
+          <div class="collapse d-md-block" id="categories" data-bs-parent="#links">
+            <ul class="nav flex-column pb-2 pb-md-0">
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Kitchen</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Bathroom</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Living room</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">Bedroom</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 pb-2 pb-md-0">
+          <h3 class="h6 text-uppercase d-none d-md-block">Showroom</h3>
+          <a class="btn-more h6 mb-1 text-uppercase text-decoration-none d-flex align-items-center collapsed d-md-none"
+            href="#showroom" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="showroom"
+            data-show-label="Showroom" data-hide-label="Showroom" aria-label="Showroom"></a>
+          <div class="collapse d-md-block" id="showroom" data-bs-parent="#links">
+            <ul class="nav flex-column pb-3">
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="#">1501 Main St, Ste 50<br>Tewksbury MA 01876</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="mailto:email@example.com">email@example.com</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-normal px-0 py-1" href="+15262200459">+1�526�220�0459</a>
+              </li>
+            </ul>
+            <ul class="list-unstyled mb-0 pb-3 pb-md-0">
+              <li class="text-light opacity-90 mb-2">Mon-Fri: 8:00 - 21:00</li>
+              <li class="text-light opacity-90 mb-2">Sat: 8:00 - 21:00</li>
+              <li class="text-light opacity-90">Sun: 8:00 - 21:00</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-xl-3 mt-md-2 mt-xl-0 pt-2 pt-md-4 pt-xl-0">
+          <h3 class="h6 text-uppercase mb-1 pb-1">Download our app</h3>
+          <div class="d-flex d-xl-block d-xxl-flex">
+            <a class="btn btn-secondary px-3 py-2 mt-3 me-3" href="#">
+              <img class="mx-1" src="assets/img/market/appstore-light.svg" width="120" alt="App Store">
+            </a>
+            <a class="btn btn-secondary px-3 py-2 mt-3" href="#">
+              <img class="mx-1" src="assets/img/market/googleplay-light.svg" width="119" alt="Google Play">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav + Switcher -->
+      <div class="d-sm-flex align-items-end justify-content-between border-bottom mt-2 mt-sm-1 pt-4 pt-sm-5">
+
+        <!-- Nav -->
+        <nav class="nav d-flex mb-3 mb-sm-4">
+          <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-4" href="#">Support</a>
+          <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-4" href="#">Privacy</a>
+          <a class="nav-link text-body-secondary fs-sm fw-normal ps-0 pe-2 py-2 me-sm-4" href="#">Terms of use</a>
+        </nav>
+
+        <!-- Language / currency switcher -->
+        <div class="dropdown mb-4">
+          <button class="btn btn-outline-secondary dropdown-toggle px-4" type="button" data-bs-toggle="dropdown"
+            data-bs-auto-close="outside" aria-expanded="false"><img class="me-2" src="assets/img/flags/en.png"
+              width="18" alt="English / USD">Eng / USD</button>
+          <div class="dropdown-menu dropdown-menu-end my-1">
+            <div class="dropdown-item">
+              <select class="form-select form-select-sm">
+                <option value="usd">$ USD</option>
+                <option value="eur">€ EUR</option>
+                <option value="ukp">£ UKP</option>
+                <option value="jpy">¥ JPY</option>
+              </select>
+            </div>
+            <a class="dropdown-item pb-1" href="#">
+              <img class="me-2" src="assets/img/flags/fr.png" width="18" alt="Français"> Français
+            </a>
+            <a class="dropdown-item pb-1" href="#">
+              <img class="me-2" src="assets/img/flags/de.png" width="18" alt="Deutsch"> Deutsch
+            </a>
+            <a class="dropdown-item" href="#">
+              <img class="me-2" src="assets/img/flags/it.png" width="18" alt="Italiano"> Italiano
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo + Socials + Cards -->
+      <div class="d-sm-flex align-items-center pt-4">
+        <div class="d-sm-flex align-items-center pe-sm-2">
+          <a class="navbar-brand d-inline-flex align-items-center me-sm-5 mb-4 mb-sm-0" href="index.html">
+            <span class="text-primary flex-shrink-0 me-2">
+              <svg version="1.1" width="35" height="32" viewBox="0 0 36 33" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor"
+                  d="M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z">
+                </path>
+              </svg>
+            </span>
+            <span class="text-light opacity-90">Around</span>
+          </a>
+          <div class="d-flex mb-4 mb-sm-0">
+            <a class="btn btn-icon btn-sm btn-secondary btn-telegram rounded-circle mx-2 ms-sm-0 me-sm-3" href="#"
+              aria-label="Telegram">
+              <i class="ai-telegram"></i>
+            </a>
+            <a class="btn btn-icon btn-sm btn-secondary btn-instagram rounded-circle mx-2 ms-sm-0 me-sm-3" href="#"
+              aria-label="Instagram">
+              <i class="ai-instagram"></i>
+            </a>
+            <a class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle mx-2 ms-sm-0 me-sm-3" href="#"
+              aria-label="Facebook">
+              <i class="ai-facebook"></i>
+            </a>
+            <a class="btn btn-icon btn-sm btn-secondary btn-pinterest rounded-circle mx-2 ms-sm-0 me-sm-3" href="#"
+              aria-label="Piterest">
+              <i class="ai-pinterest"></i>
+            </a>
+          </div>
+        </div>
+        <img class="ms-sm-auto" src="assets/img/shop/footer-cards.png" width="187" alt="Accepted cards">
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <a class="btn-scroll-top" href="#top" data-scroll="" aria-label="Scroll back to top">
+    <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10">
+      </circle>
+    </svg>
+    <i class="ai-arrow-up"></i>
+  </a>
+
+  <!-- Vendor scripts: JS libraries and plugins -->
+  <script src="{% static 'js/jarallax.min.js' %}"></script>
+  <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'js/timezz.js' %}"></script>
+
+  <!-- Bootstrap + Theme scripts -->
+  <script src="{% static 'js/theme.min.js' %}"></script>
+
+  <!-- Customizer -->
+  <script src="{% static 'js/customizer.min.js' %}"></script>
+
+</body>
+
+</html>
+</style>
+</code>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>
